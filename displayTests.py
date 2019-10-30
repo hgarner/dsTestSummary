@@ -2,7 +2,14 @@ from lxml import etree
 import argparse
 import os
 
+##
+# parse junit xml output from R testthat tests
+# print summary tests and counts of passed/failed/etc
+##
+
 # process the input_filename and return an etree object
+# @param string input_filename - path of junit xml file to process
+# @return object etree
 def process_input(input_filename):
   if not os.path.isfile(input_filename):
     raise ValueError(f'input {input_filename} does not appear to exist')
@@ -13,14 +20,18 @@ def process_input(input_filename):
   return test_results
 
 # get all the testsuites from the test_results (etree ElementTree)
-# return a list of etree Elements (testsuite)
+# @param etree ElementTree of test results
+# @return list of etree Elements (testsuite)
 def get_testsuites(test_results):
   testsuite_xpath = '//testsuite'
-  testsuites = test_results.xpath(testsuite_xpath)
+  testsuites = test_results.xpath(testsuithttps://www.theguardian.com/politics/live/2019/oct/28/boris-johnsons-election-vote-looms-as-eu-decides-on-brexit-delay-politics-livee_xpath)
   return testsuites
 
 # process a testsuite Element and print its name (format dependent on nesting)
 # then print successes/failures if tests > 0
+# @param etree Element testsuite
+# @param dict test_result_count (default None)
+# @return dict count of results of tests
 def print_results(testsuite, test_result_count = None):
   # if test_result_count is None, this is the first run,
   # so setup the counter dict and print the column headers
