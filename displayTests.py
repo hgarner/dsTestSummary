@@ -24,7 +24,7 @@ def process_input(input_filename):
 # @return list of etree Elements (testsuite)
 def get_testsuites(test_results):
   testsuite_xpath = '//testsuite'
-  testsuites = test_results.xpath(testsuithttps://www.theguardian.com/politics/live/2019/oct/28/boris-johnsons-election-vote-looms-as-eu-decides-on-brexit-delay-politics-livee_xpath)
+  testsuites = test_results.xpath(testsuite_xpath)
   return testsuites
 
 # process a testsuite Element and print its name (format dependent on nesting)
