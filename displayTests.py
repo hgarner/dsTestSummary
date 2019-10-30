@@ -79,9 +79,9 @@ if __name__ == '__main__':
     test_result_count = print_results(testsuite, test_result_count)
   print(f'''
     Results:
-      Tests:     {test_result_count['tests']}
-      Succeeded: {test_result_count['succeeded']}
-      Skipped: {test_result_count['skipped']}
-      Failed:    {test_result_count['failed']}
-      Errors:    {test_result_count['errors']}
+      Tests:     {test_result_count['tests']:>4}
+      Succeeded: {test_result_count['succeeded']:>4}
+      Skipped:   {test_result_count['skipped']:>4}
+      Failed:    {test_result_count['failed']:>4}
+      Errors:    {test_result_count['errors']:>4}
   ''')
